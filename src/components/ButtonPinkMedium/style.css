@@ -1,0 +1,9 @@
+.buttonPinkMedium {
+  width: 241px;
+  height: 48px;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
