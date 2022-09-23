@@ -21,7 +21,7 @@ const Transactions = () => {
           <label htmlFor="selectType">Tipo de Valor</label>
           <select name="selectType" id="selectType">
             <option value="Entrada">Entrada</option>
-            <option value="Despensa">Despensa</option>
+            <option value="Despesa">Despesa</option>
           </select>
         </div>
       </div>
