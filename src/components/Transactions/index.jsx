@@ -14,7 +14,8 @@ const Transactions = () => {
       <div className="box">
         <div className="box__value">
           <label htmlFor="inputValue">Valor</label>
-          <input type="number" placeholder="R$" id="inputValue" />
+          <input type="number" id="inputValue" />
+          <p>R$</p>
         </div>
         <div className="box__type">
           <label htmlFor="selectType">Tipo de Valor</label>

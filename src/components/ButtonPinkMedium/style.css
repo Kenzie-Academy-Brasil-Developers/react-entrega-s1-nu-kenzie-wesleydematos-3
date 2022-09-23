@@ -7,3 +7,7 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+.buttonPinkMedium:hover {
+  background-color: var(--color-primary-2);
+}
