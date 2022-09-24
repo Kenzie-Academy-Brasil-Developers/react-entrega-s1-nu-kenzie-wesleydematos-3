@@ -15,6 +15,20 @@
   margin-top: 10px;
 }
 
+.buttonPinkMedium {
+  width: 241px;
+  height: 48px;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.buttonPinkMedium:hover {
+  background-color: var(--color-primary-2);
+}
+
 @media (min-width: 1100px) {
   .landingPage {
     flex-direction: row;

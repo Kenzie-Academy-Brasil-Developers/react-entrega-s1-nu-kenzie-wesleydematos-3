@@ -1,7 +1,6 @@
 import "./style.css";
 import nukenzie from "../img/nukenzie.png";
 import illustration from "../img/illustration.svg";
-import ButtonPinkMedium from "../ButtonPinkMedium";
 
 const LandingPage = ({ setAuth, auth }) => {
   return (
@@ -10,7 +9,13 @@ const LandingPage = ({ setAuth, auth }) => {
         <img src={nukenzie} alt="NuKenzie Logo" />
         <h1>Centralize o controle das suas finanças</h1>
         <p>de forma rápida e segura</p>
-        <ButtonPinkMedium content="Iniciar" auth={auth} setAuth={setAuth} />
+        <button
+          type="button"
+          className="buttonPinkMedium"
+          onClick={() => setAuth(!auth)}
+        >
+          Iniciar
+        </button>
       </div>
       <img src={illustration} alt="Ilustração" />
     </div>

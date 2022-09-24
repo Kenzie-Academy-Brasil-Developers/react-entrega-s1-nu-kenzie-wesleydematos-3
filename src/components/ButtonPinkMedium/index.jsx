@@ -1,12 +1,8 @@
 import "./style.css";
 
-const ButtonPinkMedium = ({ content, setAuth, auth }) => {
+const ButtonPinkMedium = ({ content }) => {
   return (
-    <button
-      type="button"
-      className="buttonPinkMedium"
-      onClick={() => setAuth(!auth)}
-    >
+    <button type="button" className="buttonPinkMedium">
       {content}
     </button>
   );
