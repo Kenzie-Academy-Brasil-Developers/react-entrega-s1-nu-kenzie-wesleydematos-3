@@ -3,14 +3,14 @@ import nukenzie from "../img/nukenzie.png";
 import illustration from "../img/illustration.svg";
 import ButtonPinkMedium from "../ButtonPinkMedium";
 
-const LandingPage = () => {
+const LandingPage = ({ setAuth, auth }) => {
   return (
     <div className="landingPage">
       <div className="landingPage__content">
         <img src={nukenzie} alt="NuKenzie Logo" />
         <h1>Centralize o controle das suas finanças</h1>
         <p>de forma rápida e segura</p>
-        <ButtonPinkMedium content="Iniciar" />
+        <ButtonPinkMedium content="Iniciar" auth={auth} setAuth={setAuth} />
       </div>
       <img src={illustration} alt="Ilustração" />
     </div>

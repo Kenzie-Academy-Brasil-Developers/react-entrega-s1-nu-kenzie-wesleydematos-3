@@ -12,29 +12,33 @@ function App() {
 
   return (
     <div className="App">
-      {/* <LandingPage /> */}
-      <Header />
-      <main>
-        <div className="box_left">
-          <Transactions />
-          {/* se houver lancamentos <Total totalValue={-700} /> */}
-        </div>
-        <div className="box_right">
-          <Summary />
+      {!auth ? (
+        <LandingPage auth={auth} setAuth={setAuth} />
+      ) : (
+        <>
+          <Header auth={auth} setAuth={setAuth} />
 
-          {/* se  não houver lancamentos */}
+          <main>
+            <div className="box_left">
+              <Transactions />
+              {/* se houver lancamentos <Total totalValue={-700} /> */}
+            </div>
+            <div className="box_right">
+              <Summary />
+
+              {/* se  não houver lancamentos 
           <h2>Você ainda não possui nenhum lançamento</h2>
           <img src={carregamento} alt="Carregando" />
           <img src={carregamento} alt="Carregando" />
           <img src={carregamento} alt="Carregando" />
-
-          {/* se  houver lancamentos 
-          <ul className="all_transactions">
-          
-          </ul>
           */}
-        </div>
-      </main>
+
+              {/* se  houver lancamentos */}
+              <ul className="all_transactions"></ul>
+            </div>
+          </main>
+        </>
+      )}
     </div>
   );
 }
