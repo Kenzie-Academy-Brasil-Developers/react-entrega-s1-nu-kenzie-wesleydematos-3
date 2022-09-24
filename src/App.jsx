@@ -6,9 +6,12 @@ import Total from "./components/Total";
 import Transactions from "./components/Transactions";
 import carregamento from "./components/img/NoCard.png";
 import { useState } from "react";
+import Expenses from "./components/Expenses";
+import Entries from "./components/Entries";
 
 function App() {
   const [auth, setAuth] = useState(false);
+  const [transaction, setTransaction] = useState([]);
 
   return (
     <div className="App">
@@ -21,22 +24,41 @@ function App() {
           <main>
             <div className="box_left">
               <Transactions />
-              {/* se houver lancamentos <Total totalValue={-700} /> */}
+              <Total totalValue={-700} />
+            </div>
+            <div className="box_right">
+              <Summary />
+              <ul>
+                <Entries
+                  valueTrans="3.000,00"
+                  descriptionTrans="Salário - Setembro"
+                />
+                <Expenses
+                  valueTrans="3.000,00"
+                  descriptionTrans="Compras Mercado"
+                />
+              </ul>
+            </div>
+          </main>
+
+          {/* 
+          PARA QUANDO NÃO HOUVER LANÇAMENTOS
+          
+          <Header auth={auth} setAuth={setAuth} />
+
+          <main>
+            <div className="box_left">
+              <Transactions />
             </div>
             <div className="box_right">
               <Summary />
 
-              {/* se  não houver lancamentos 
-          <h2>Você ainda não possui nenhum lançamento</h2>
-          <img src={carregamento} alt="Carregando" />
-          <img src={carregamento} alt="Carregando" />
-          <img src={carregamento} alt="Carregando" />
-          */}
-
-              {/* se  houver lancamentos */}
-              <ul className="all_transactions"></ul>
+              <h2>Você ainda não possui nenhum lançamento</h2>
+              <img src={carregamento} alt="Carregando" />
+              <img src={carregamento} alt="Carregando" />
+              <img src={carregamento} alt="Carregando" />
             </div>
-          </main>
+          </main> */}
         </>
       )}
     </div>
