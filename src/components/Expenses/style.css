@@ -39,12 +39,12 @@
   line-height: 30px;
   color: var(--grey-4);
   margin: 7px 0;
-  margin-right: 80px;
+  width: 220px;
 }
 
 @media (min-width: 1100px) {
   .div__data__out > div > h2 {
-    margin-right: 260px;
+    width: 400px;
   }
 
   .div__data__out > div > div {
@@ -52,10 +52,13 @@
     align-items: center;
   }
 
+  .div__data__out > div > div > p {
+    width: 117px;
+  }
+
   .div__data__out > div > div > img {
     cursor: pointer;
     height: 10px;
     width: 9px;
-    margin-left: 52px;
   }
 }
