@@ -12,6 +12,7 @@ import Entries from "./components/Entries";
 function App() {
   const [auth, setAuth] = useState(false);
   const [transactions, setTransactions] = useState([]);
+  const [transactionsFiltred, setTransactionsFiltred] = useState([]);
 
   if (!auth) {
     return <LandingPage auth={auth} setAuth={setAuth} />;
@@ -50,30 +51,59 @@ function App() {
             <Total transactions={transactions} />
           </div>
           <div className="box_right">
-            <Summary />
+            <Summary
+              transactions={transactions}
+              setTransactions={setTransactions}
+              transactionsFiltred={transactionsFiltred}
+              setTransactionsFiltred={setTransactionsFiltred}
+            />
 
             <ul>
-              {transactions.map((transaction, index) => {
-                return transaction.typeValue === "Entrada" ? (
-                  <Entries
-                    valueTrans={`R$ ${transaction.value}`}
-                    descriptionTrans={transaction.description}
-                    key={index}
-                    transactions={transactions}
-                    setTransactions={setTransactions}
-                    index={index}
-                  />
-                ) : (
-                  <Expenses
-                    valueTrans={`R$ ${transaction.value}`}
-                    descriptionTrans={transaction.description}
-                    key={index}
-                    transactions={transactions}
-                    setTransactions={setTransactions}
-                    index={index}
-                  />
-                );
-              })}
+              {!transactionsFiltred.length &&
+                transactions.map((transaction, index) => {
+                  return transaction.typeValue === "Entrada" ? (
+                    <Entries
+                      valueTrans={`R$ ${transaction.value}`}
+                      descriptionTrans={transaction.description}
+                      key={index}
+                      transactions={transactions}
+                      setTransactions={setTransactions}
+                      index={index}
+                    />
+                  ) : (
+                    <Expenses
+                      valueTrans={`R$ ${transaction.value}`}
+                      descriptionTrans={transaction.description}
+                      key={index}
+                      transactions={transactions}
+                      setTransactions={setTransactions}
+                      index={index}
+                    />
+                  );
+                })}
+
+              {transactionsFiltred.length &&
+                transactionsFiltred.map((transaction, index) => {
+                  return transaction.typeValue === "Entrada" ? (
+                    <Entries
+                      valueTrans={`R$ ${transaction.value}`}
+                      descriptionTrans={transaction.description}
+                      key={index}
+                      transactions={transactionsFiltred}
+                      setTransactions={setTransactionsFiltred}
+                      index={index}
+                    />
+                  ) : (
+                    <Expenses
+                      valueTrans={`R$ ${transaction.value}`}
+                      descriptionTrans={transaction.description}
+                      key={index}
+                      transactions={transactionsFiltred}
+                      setTransactions={setTransactionsFiltred}
+                      index={index}
+                    />
+                  );
+                })}
             </ul>
           </div>
         </main>
