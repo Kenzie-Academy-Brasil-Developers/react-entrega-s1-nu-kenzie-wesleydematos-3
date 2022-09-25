@@ -47,14 +47,27 @@ function App() {
               transactions={transactions}
               setTransactions={setTransactions}
             />
-            <Total totalValue={""} />
+            <Total transactions={transactions} />
           </div>
           <div className="box_right">
             <Summary />
 
             <ul>
-              <Entries valueTrans={""} descriptionTrans={""} />
-              <Expenses valueTrans={""} descriptionTrans={""} />
+              {transactions.map((transaction, index) => {
+                return transaction.typeValue === "Entrada" ? (
+                  <Entries
+                    valueTrans={`R$ ${transaction.value}`}
+                    descriptionTrans={transaction.description}
+                    key={index}
+                  />
+                ) : (
+                  <Expenses
+                    valueTrans={`R$ ${transaction.value}`}
+                    descriptionTrans={transaction.description}
+                    key={index}
+                  />
+                );
+              })}
             </ul>
           </div>
         </main>
