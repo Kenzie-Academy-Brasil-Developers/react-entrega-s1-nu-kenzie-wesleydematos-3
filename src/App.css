@@ -47,6 +47,11 @@ li {
   margin-bottom: 32px;
 }
 
+select,
+option {
+  cursor: pointer;
+}
+
 @media (min-width: 1100px) {
   main {
     flex-direction: row;

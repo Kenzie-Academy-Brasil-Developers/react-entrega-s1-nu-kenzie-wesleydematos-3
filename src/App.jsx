@@ -24,7 +24,10 @@ function App() {
       {!transactions.length && (
         <main>
           <div className="box_left">
-            <Transactions />
+            <Transactions
+              transactions={transactions}
+              setTransactions={setTransactions}
+            />
           </div>
           <div className="box_right">
             <Summary />
@@ -40,7 +43,10 @@ function App() {
       {transactions.length && (
         <main>
           <div className="box_left">
-            <Transactions />
+            <Transactions
+              transactions={transactions}
+              setTransactions={setTransactions}
+            />
             <Total totalValue={""} />
           </div>
           <div className="box_right">
