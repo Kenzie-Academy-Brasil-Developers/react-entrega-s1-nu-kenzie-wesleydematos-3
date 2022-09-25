@@ -11,55 +11,47 @@ import Entries from "./components/Entries";
 
 function App() {
   const [auth, setAuth] = useState(false);
-  const [transaction, setTransaction] = useState([]);
+  const [transactions, setTransactions] = useState([]);
+
+  if (!auth) {
+    return <LandingPage auth={auth} setAuth={setAuth} />;
+  }
 
   return (
     <div className="App">
-      {!auth ? (
-        <LandingPage auth={auth} setAuth={setAuth} />
-      ) : (
-        <>
-          <Header auth={auth} setAuth={setAuth} />
+      <Header auth={auth} setAuth={setAuth} />
 
-          <main>
-            <div className="box_left">
-              <Transactions />
-              <Total totalValue={-700} />
-            </div>
-            <div className="box_right">
-              <Summary />
-              <ul>
-                <Entries
-                  valueTrans="3.000,00"
-                  descriptionTrans="Salário - Setembro"
-                />
-                <Expenses
-                  valueTrans="3.000,00"
-                  descriptionTrans="Compras Mercado"
-                />
-              </ul>
-            </div>
-          </main>
+      {!transactions.length && (
+        <main>
+          <div className="box_left">
+            <Transactions />
+          </div>
+          <div className="box_right">
+            <Summary />
 
-          {/* 
-          PARA QUANDO NÃO HOUVER LANÇAMENTOS
-          
-          <Header auth={auth} setAuth={setAuth} />
+            <h2>Você ainda não possui nenhum lançamento</h2>
+            <img src={carregamento} alt="Carregando" />
+            <img src={carregamento} alt="Carregando" />
+            <img src={carregamento} alt="Carregando" />
+          </div>
+        </main>
+      )}
 
-          <main>
-            <div className="box_left">
-              <Transactions />
-            </div>
-            <div className="box_right">
-              <Summary />
+      {transactions.length && (
+        <main>
+          <div className="box_left">
+            <Transactions />
+            <Total totalValue={""} />
+          </div>
+          <div className="box_right">
+            <Summary />
 
-              <h2>Você ainda não possui nenhum lançamento</h2>
-              <img src={carregamento} alt="Carregando" />
-              <img src={carregamento} alt="Carregando" />
-              <img src={carregamento} alt="Carregando" />
-            </div>
-          </main> */}
-        </>
+            <ul>
+              <Entries valueTrans={""} descriptionTrans={""} />
+              <Expenses valueTrans={""} descriptionTrans={""} />
+            </ul>
+          </div>
+        </main>
       )}
     </div>
   );
