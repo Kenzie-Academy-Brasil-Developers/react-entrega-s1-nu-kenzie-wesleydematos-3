@@ -1,7 +1,25 @@
 import "./style.css";
 import trash from "../img/trash.png";
 
-const Entries = ({ valueTrans, descriptionTrans }) => {
+const Entries = ({
+  valueTrans,
+  descriptionTrans,
+  transactions,
+  setTransactions,
+  index,
+}) => {
+  function removeNumber(event) {
+    const id = event.target.id;
+
+    const newTransactions = transactions.filter((element, index) => {
+      if (index != id) {
+        return element;
+      }
+    });
+
+    setTransactions(newTransactions);
+  }
+
   return (
     <li className="entries">
       <div className="div__green"></div>
@@ -10,7 +28,12 @@ const Entries = ({ valueTrans, descriptionTrans }) => {
           <h2>{descriptionTrans}</h2>
           <div>
             <p>{valueTrans}</p>
-            <img src={trash} alt="lixeira" />
+            <img
+              id={index}
+              src={trash}
+              alt="lixeira"
+              onClick={(event) => removeNumber(event)}
+            />
           </div>
         </div>
         <p>Entrada</p>

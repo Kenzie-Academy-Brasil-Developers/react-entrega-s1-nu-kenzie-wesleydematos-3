@@ -59,12 +59,18 @@ function App() {
                     valueTrans={`R$ ${transaction.value}`}
                     descriptionTrans={transaction.description}
                     key={index}
+                    transactions={transactions}
+                    setTransactions={setTransactions}
+                    index={index}
                   />
                 ) : (
                   <Expenses
                     valueTrans={`R$ ${transaction.value}`}
                     descriptionTrans={transaction.description}
                     key={index}
+                    transactions={transactions}
+                    setTransactions={setTransactions}
+                    index={index}
                   />
                 );
               })}

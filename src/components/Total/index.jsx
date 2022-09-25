@@ -3,8 +3,8 @@ import "./style.css";
 const Total = ({ transactions }) => {
   const sum = transactions.reduce((acumulador, valorAtual) => {
     return valorAtual.typeValue === "Entrada"
-      ? acumulador + valorAtual.value
-      : acumulador - valorAtual.value;
+      ? Number(acumulador + valorAtual.value)
+      : Number(acumulador - valorAtual.value);
   }, 0);
 
   return (
