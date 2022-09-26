@@ -11,11 +11,35 @@ const Summary = ({
   function filterTransactions(event) {
     const id = event.target.id;
     const botao = event.target;
+    const botaoRosa = document.querySelector(".buttonPinkSmall");
 
-    // if (id === "Todos") {
-    //   setTransactions(transactions);
-    //   console.log(transactions);
-    // }
+    const newTransactionFil = transactions.filter((element) => {
+      return id == element.typeValue;
+    });
+
+    setTransactionsFiltred(newTransactionFil);
+    console.log(transactionsFiltred);
+
+    if (id === "Todos") {
+      // setTransactions(transactions);
+      if (botaoRosa !== id) {
+        botaoRosa.classList.toggle("buttonPinkSmall");
+        botaoRosa.classList.toggle("buttonGreySmall");
+        botao.classList.toggle("buttonPinkSmall");
+      }
+    } else if (id === "Entrada") {
+      if (botaoRosa !== id) {
+        botaoRosa.classList.toggle("buttonPinkSmall");
+        botaoRosa.classList.toggle("buttonGreySmall");
+        botao.classList.toggle("buttonPinkSmall");
+      }
+    } else {
+      if (botaoRosa !== id) {
+        botaoRosa.classList.toggle("buttonPinkSmall");
+        botaoRosa.classList.toggle("buttonGreySmall");
+        botao.classList.toggle("buttonPinkSmall");
+      }
+    }
   }
 
   return (
@@ -42,7 +66,7 @@ const Summary = ({
           type="button"
           className="buttonGreySmall"
           onClick={(event) => filterTransactions(event)}
-          id="Despesas"
+          id="Despesa"
         >
           Despesas
         </button>
