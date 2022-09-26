@@ -48,6 +48,10 @@ li {
   margin-bottom: 32px;
 }
 
+ul > li > div > div > div > p {
+  color: var(--grey-4);
+}
+
 select,
 option {
   cursor: pointer;

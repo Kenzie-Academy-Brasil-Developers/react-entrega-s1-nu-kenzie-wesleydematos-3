@@ -53,7 +53,6 @@ function App() {
           <div className="box_right">
             <Summary
               transactions={transactions}
-              setTransactions={setTransactions}
               transactionsFiltred={transactionsFiltred}
               setTransactionsFiltred={setTransactionsFiltred}
             />

@@ -4,7 +4,6 @@ import ButtonPinkSmall from "../ButtonPinkSmall";
 
 const Summary = ({
   transactions,
-  setTransactions,
   transactionsFiltred,
   setTransactionsFiltred,
 }) => {
@@ -21,7 +20,6 @@ const Summary = ({
     console.log(transactionsFiltred);
 
     if (id === "Todos") {
-      // setTransactions(transactions);
       if (botaoRosa !== id) {
         botaoRosa.classList.toggle("buttonPinkSmall");
         botaoRosa.classList.toggle("buttonGreySmall");
